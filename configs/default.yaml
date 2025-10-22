@@ -1,0 +1,37 @@
+random_seed: 42
+
+lanes:
+  count: 4
+  pilot_len: 128         # NEW: symbols used only for equalizer/AGC training
+  data_len: 1020         # NEW: EXACTLY one RS(255,k) codeword → 1020 PAM4 symbols
+  blocks_per_run: 50
+
+pam4:
+  levels: [-3, -1, 1, 3]
+
+channel:
+  isi_taps: [1.0, 0.22, 0.06]
+  snr_db_per_lane: [32.0, 32.0, 26.0, 32.0]
+
+impairments:
+  burst_noise:
+    enabled: false
+    p_burst: 0.001
+    length: 16
+    amplitude: 0.6
+  periodic_interference:
+    enabled: false
+    f_norm: 0.05
+    amplitude: 0.3
+
+fec:
+  rs_nsym: 32             # t = 16
+  interleave_bytes: false
+  interleave_stride: 31
+
+io:
+  data_dir: "data"
+  results_dir: "results"
+  run_name: "m3_deterministic"
+
+  

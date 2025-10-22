@@ -1,0 +1,25 @@
+random_seed: 42
+io:
+  m3_metrics_path: "data/m3_deterministic_m3_metrics.parquet"
+  dataset_out:     "data/m4_sqi_dataset.parquet"
+  results_dir:     "results"
+  run_name:        "m4_predictor"
+
+sqi:
+  snr_db_good: 24.0
+  snr_db_bad: 12.0
+  evm_db_good: 24.0
+  evm_db_bad: 10.0
+  corr_scale: 255.0
+  w_snr: 0.40
+  w_evm: 0.20
+  w_corr: 0.30
+  w_fail: 0.10
+  smooth_blocks: 3
+  risk_threshold: 0.60
+
+dataset:
+  window_len: 8
+  horizon: 4
+  train_frac: 0.7
+  target: "sqi"

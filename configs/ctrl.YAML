@@ -1,0 +1,33 @@
+controller:
+  default_nsym: 32
+  energy_cap: 128
+  hysteresis_blocks: 4
+  parity_levels:
+  - 16
+  - 24
+  - 32
+  - 40
+  - 48
+  softmax_tau: 8.0
+  target_sqi: 0.7
+io:
+  m3_metrics_path: data/m3_deterministic_m3_metrics.parquet
+  results_dir: results
+  run_name: m5_ctrl_cap128_tau8_hy4
+random_seed: 42
+simulation:
+  enable_baseline: true
+  max_steps: 200
+  symbols_per_byte: 4
+sqi:
+  corr_scale: 255.0
+  evm_db_bad: 10.0
+  evm_db_good: 24.0
+  risk_threshold: 0.6
+  smooth_blocks: 3
+  snr_db_bad: 12.0
+  snr_db_good: 24.0
+  w_corr: 0.3
+  w_evm: 0.2
+  w_fail: 0.1
+  w_snr: 0.4
